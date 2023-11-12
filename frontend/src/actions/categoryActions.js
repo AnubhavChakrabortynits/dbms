@@ -40,7 +40,7 @@ export const listCategories =
 
             //get all categories
             const { data } = await axios.get(
-                `/api/categories?keyword=${keyword}&pageNumber=${pageNumber}`,
+                `http://localhost:5000/api/categories?keyword=${keyword}&pageNumber=${pageNumber}`,
                 config
             );
 
@@ -82,7 +82,7 @@ export const createCategory = (category) => async (dispatch, getState) => {
         };
 
         //create category
-        const { data } = await axios.post("/api/categories", { name }, config);
+        const { data } = await axios.post("http://localhost:5000/api/categories", { name }, config);
         dispatch({
             type: CATEGORY_CREATE_SUCCESS,
             payload: data,

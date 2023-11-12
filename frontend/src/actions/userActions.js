@@ -38,7 +38,7 @@ export const login = (email, password) => async (dispatch) => {
 
         //get login data
         const { data } = await axios.post(
-            "/api/users/login",
+            "http://localhost:5000/api/users/login",
             { email, password },
             config
         );
@@ -91,7 +91,7 @@ export const listUsers =
 
             //get all users
             const { data } = await axios.get(
-                `/api/users?keyword=${keyword}&pageNumber=${pageNumber}`,
+                `http://localhost:5000/api/users?keyword=${keyword}&pageNumber=${pageNumber}`,
                 config
             );
             dispatch({
@@ -133,7 +133,7 @@ export const register = (user) => async (dispatch, getState) => {
 
         //get login data
         const { data } = await axios.post(
-            "/api/users",
+            "http://localhost:5000/api/users",
             { name, email, password, isAdmin },
             config
         );
@@ -170,7 +170,7 @@ export const listUserDetails = (id) => async (dispatch, getState) => {
         };
 
         //api call to get product
-        const { data } = await axios.get(`/api/users/${id}`, config);
+        const { data } = await axios.get(`http://localhost:5000/api/users/${id}`, config);
         dispatch({
             type: USER_DETAILS_SUCCESS,
             payload: data,
@@ -206,7 +206,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
         };
 
         //update user
-        const { data } = await axios.put(`/api/users/${user.id}`, user, config);
+        const { data } = await axios.put(`http://localhost:5000/api/users/${user.id}`, user, config);
         dispatch({
             type: USER_UPDATE_SUCCESS,
             payload: data,
@@ -241,7 +241,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
         };
 
         //api call to delete user
-        await axios.delete(`/api/users/${id}`, config);
+        await axios.delete(`http://localhost:5000/api/users/${id}`, config);
         dispatch({
             type: USER_DELETE_SUCCESS,
         });
@@ -277,7 +277,7 @@ export const updateProfile = (user) => async (dispatch, getState) => {
 
         //update user
         const { data } = await axios.put(
-            `/api/users/profile/${user.id}`,
+            `http://localhost:5000/api/users/profile/${user.id}`,
             user,
             config
         );

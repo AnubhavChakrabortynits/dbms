@@ -40,7 +40,7 @@ export const allTables = () => async (dispatch, getState) => {
         };
 
         //if tables available is needed
-        const { data } = await axios.get(`/api/tables/all`, config);
+        const { data } = await axios.get(`http://localhost:5000/api/tables/all`, config);
 
         dispatch({
             type: TABLE_ALL_SUCCESS,
@@ -81,7 +81,7 @@ export const listTables = (keyword = "", pageNumber = "") => async (
 
         //get all tables
         const { data } = await axios.get(
-            `/api/tables?keyword=${keyword}&pageNumber=${pageNumber}`,
+            `http://localhost:5000/api/tables?keyword=${keyword}&pageNumber=${pageNumber}`,
             config
         );
 
@@ -123,7 +123,7 @@ export const createTable = (table) => async (dispatch, getState) => {
         };
 
         //create table
-        const { data } = await axios.post("/api/tables", { name }, config);
+        const { data } = await axios.post("http://localhost:5000/api/tables", { name }, config);
         dispatch({
             type: TABLE_CREATE_SUCCESS,
             payload: data,
@@ -157,7 +157,7 @@ export const listTableDetails = (id) => async (dispatch, getState) => {
         };
 
         //api call to get table
-        const { data } = await axios.get(`/api/tables/${id}`, config);
+        const { data } = await axios.get(`http://localhost:5000/api/tables/${id}`, config);
         dispatch({
             type: TABLE_DETAILS_SUCCESS,
             payload: data,
@@ -194,7 +194,7 @@ export const updateTable = (table) => async (dispatch, getState) => {
 
         //update table
         const { data } = await axios.put(
-            `/api/tables/${table.id}`,
+            `http://localhost:5000/api/tables/${table.id}`,
             table,
             config
         );
@@ -232,7 +232,7 @@ export const deleteTable = (id) => async (dispatch, getState) => {
         };
 
         //api call to delete table
-        await axios.delete(`/api/tables/${id}`, config);
+        await axios.delete(`http://localhost:5000/api/tables/${id}`, config);
         dispatch({
             type: TABLE_DELETE_SUCCESS,
         });

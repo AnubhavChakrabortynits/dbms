@@ -2,18 +2,19 @@ const express = require("express");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const path = require("path");
+const cors = require("cors");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
 dotenv.config();
 const app = express();
-
+app.use(cors())
 if (process.env.NODE_ENV === "development") {
     app.use(morgan("dev"));
 }
 
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true }));
-
+ 
 /* Routes import */
 const userRoutes = require("./routes/user");
 const categoryRoutes = require("./routes/category");

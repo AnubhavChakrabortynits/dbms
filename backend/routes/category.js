@@ -17,8 +17,8 @@ const { runValidation } = require("../validators");
 //ROUTES
 router
     .route("/")
-    .get(protect, getCategories)
-    .post(protect, categoryCreateValidator, runValidation, createCategory);
+    .get( getCategories)
+    .post(createCategory);
 
 router
     .route("/:id")

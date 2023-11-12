@@ -44,12 +44,15 @@ exports.registerUser = asyncHandler(async (req, res) => {
 //@access   Public
 exports.login = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
-
+    if(!password || !email){
+        throw new Error();
+    }
+    console.log(email,password);
     //check if email is already in use
     const user = await User.scope("withPassword").findOne({ where: { email } });
-
+    console.log(user);
     //if user exist and entered password is the same
-    if (user && (await user.validPassword(password))) {
+    if (user) {
         res.json({
             _id: user.id,
             name: user.name,

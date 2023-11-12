@@ -40,7 +40,7 @@ export const listClients =
 
             //get all clients
             const { data } = await axios.get(
-                `/api/clients?keyword=${keyword}&pageNumber=${pageNumber}`,
+                `http://localhost:5000/api/clients?keyword=${keyword}&pageNumber=${pageNumber}`,
                 config
             );
 
@@ -80,7 +80,7 @@ export const createClient = (client) => async (dispatch, getState) => {
         };
 
         //create client
-        const { data } = await axios.post("/api/clients", client, config);
+        const { data } = await axios.post("http://localhost:5000/api/clients", client, config);
         dispatch({
             type: CLIENT_CREATE_SUCCESS,
             payload: data,
@@ -114,7 +114,7 @@ export const listClientDetails = (id) => async (dispatch, getState) => {
         };
 
         //api call to get CLIENT
-        const { data } = await axios.get(`/api/clients/${id}`, config);
+        const { data } = await axios.get(`http://localhost:5000/api/clients/${id}`, config);
         dispatch({
             type: CLIENT_DETAILS_SUCCESS,
             payload: data,
@@ -151,7 +151,7 @@ export const updateClient = (client) => async (dispatch, getState) => {
 
         //update client
         const { data } = await axios.put(
-            `/api/clients/${client.id}`,
+            `http://localhost:5000/api/clients/${client.id}`,
             client,
             config
         );
@@ -189,7 +189,7 @@ export const deleteClient = (id) => async (dispatch, getState) => {
         };
 
         //api call to delete client
-        await axios.delete(`/api/clients/${id}`, config);
+        await axios.delete(`http://localhost:5000/api/clients/${id}`, config);
         dispatch({
             type: CLIENT_DELETE_SUCCESS,
         });
