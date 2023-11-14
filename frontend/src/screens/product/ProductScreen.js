@@ -212,7 +212,6 @@ const ProductScreen = ({ history }) => {
     return (
         <>
             <HeaderContent name={"Products"} />
-            {/* Main content */}
 
             <section className="content">
                 <div className="container-fluid">
@@ -233,7 +232,6 @@ const ProductScreen = ({ history }) => {
                                         />
                                     </div>
                                 </div>
-                                {/* /.card-header */}
                                 <div className="card-body table-responsive p-0">
                                     <LoaderHandler
                                         loading={loading}
@@ -242,7 +240,6 @@ const ProductScreen = ({ history }) => {
                                         render={renderProductsTable}
                                     />
                                 </div>
-                                {/* /.card-body */}
                             </div>
                             <Pagination
                                 page={page}
@@ -250,11 +247,8 @@ const ProductScreen = ({ history }) => {
                                 setPage={setPageNumber}
                             />
                         </div>
-                        {/* /.col */}
                     </div>
-                    {/* /.row */}
                 </div>
-                {/* /.container-fluid */}
             </section>
         </>
     );

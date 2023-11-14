@@ -80,7 +80,7 @@ const ClientScreen = ({ history }) => {
         }
 
         if (!dni) {
-            errorsCheck.dni = "DNI is required";
+            errorsCheck.dni = "Adhaar Number is required";
         }
 
         if (Object.keys(errorsCheck).length > 0) {
@@ -146,7 +146,7 @@ const ClientScreen = ({ history }) => {
                         errors={errors}
                     />
                     <Input
-                        name={"dni"}
+                        name={"Adhaar Number"}
                         type={"text"}
                         data={dni}
                         setData={setDni}
@@ -175,7 +175,7 @@ const ClientScreen = ({ history }) => {
                     <th className="d-none d-sm-table-cell">Address</th>
                     <th className="d-none d-sm-table-cell">Phone</th>
                     <th className="d-none d-sm-table-cell">Email</th>
-                    <th className="d-none d-sm-table-cell">DNI</th>
+                    <th className="d-none d-sm-table-cell">Adhaar Number</th>
                     <th className="d-none d-sm-table-cell">Created At</th>
                     <th></th>
                 </tr>
@@ -250,11 +250,8 @@ const ClientScreen = ({ history }) => {
                                 setPage={setPageNumber}
                             />
                         </div>
-                        {/* /.col */}
                     </div>
-                    {/* /.row */}
                 </div>
-                {/* /.container-fluid */}
             </section>
         </>
     );

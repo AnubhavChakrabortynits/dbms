@@ -55,7 +55,7 @@ const OrderScreen = ({ history }) => {
                         <td>{order.client.name}</td>
                         <td className="d-none d-sm-table-cell h4">
                             {order.table ? (
-                                <span className={"badge bg-primary"}>
+                                <span className={"badge bg-dark"}>
                                     {order.table.name}
                                 </span>
                             ) : (
@@ -83,7 +83,7 @@ const OrderScreen = ({ history }) => {
                         <td>
                             <Link
                                 to={`/order/${order.id}/view`}
-                                className="btn btn-info btn-lg"
+                                className="btn btn-dark btn-lg"
                             >
                                 View
                             </Link>
@@ -107,7 +107,6 @@ const OrderScreen = ({ history }) => {
                         />
                     </div>
                 </div>
-                {/* /.card-header */}
                 <div className="card-body table-responsive p-0">
                     <LoaderHandler
                         loading={loading}
@@ -116,7 +115,6 @@ const OrderScreen = ({ history }) => {
                         render={renderTable}
                     />
                 </div>
-                {/* /.card-body */}
             </div>
 
             <Pagination page={page} pages={pages} setPage={setPageNumber} />
@@ -135,11 +133,8 @@ const OrderScreen = ({ history }) => {
                             <hr />
                             {renderOrders()}
                         </div>
-                        {/* /.col */}
                     </div>
-                    {/* /.row */}
                 </div>
-                {/* /.container-fluid */}
             </section>
         </>
     );

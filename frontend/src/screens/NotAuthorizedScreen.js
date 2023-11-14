@@ -3,7 +3,7 @@ import React from 'react';
 const NotAuthorizedScreen = () => {
     return ( 
         <h1>
-            No Authorized
+            Not Authorized
         </h1>
      );
 }

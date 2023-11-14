@@ -217,7 +217,6 @@ const OrderCreateScreen = ({ history, match }) => {
                                     <Loader variable={loading} />
                                     <Message message={error} color={"danger"} />
                                 </div>
-                                {/* /.card-header */}
                                 <div className="card-body">
                                     <div className="row">
                                         <div className="col-12 col-lg-6">
@@ -241,14 +240,10 @@ const OrderCreateScreen = ({ history, match }) => {
                                     </div>
                                     {renderSubmitButton()}
                                 </div>
-                                {/* /.card-body */}
                             </div>
                         </div>
-                        {/* /.col */}
                     </div>
-                    {/* /.row */}
                 </div>
-                {/* /.container-fluid */}
             </section>
         </>
     );

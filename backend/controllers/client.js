@@ -2,9 +2,6 @@ const asyncHandler = require("express-async-handler");
 const Client = require("../models").Client;
 const { Op } = require("sequelize");
 
-//@desc     Create a client
-//@route    POST /api/clients
-//@access   Private/user
 exports.createClient = asyncHandler(async (req, res) => {
     const { name, address, phone, email, dni } = req.body;
     const createdClient = await Client.create({
@@ -17,9 +14,6 @@ exports.createClient = asyncHandler(async (req, res) => {
     res.status(201).json(createdClient);
 });
 
-//@desc     Get all clients with pagination
-//@route    GET /api/clients
-//@access   Private/user
 exports.getClients = asyncHandler(async (req, res) => {
     const pageSize = 5;
     const page = Number(req.query.pageNumber) || 1;
@@ -54,9 +48,6 @@ exports.getClients = asyncHandler(async (req, res) => {
     res.json({ clients, page, pages: Math.ceil(count / pageSize) });
 });
 
-//@desc     Get client by ID
-//@route    GET /api/clients/:id
-//@access   Private/user
 exports.getClient = asyncHandler(async (req, res) => {
     const client = await Client.findByPk(req.params.id);
 
@@ -68,9 +59,6 @@ exports.getClient = asyncHandler(async (req, res) => {
     }
 });
 
-//@desc     Update client
-//@route    PUT /api/clients/:id
-//@access   Private/user
 exports.updateClient = asyncHandler(async (req, res) => {
     const { name, address, phone, email, dni } = req.body;
 
@@ -90,9 +78,6 @@ exports.updateClient = asyncHandler(async (req, res) => {
     }
 });
 
-//@desc     Delete a client
-//@route    DELETE /api/clients/:id
-//@access   Private/user
 exports.deleteClient = asyncHandler(async (req, res) => {
     const client = await Client.findByPk(req.params.id);
 

@@ -141,7 +141,6 @@ export const updateClient = (client) => async (dispatch, getState) => {
         const {
             userLogin: { userInfo },
         } = getState();
-        //headers
         const config = {
             headers: {
                 "Content-Type": "application/json",
@@ -187,8 +186,6 @@ export const deleteClient = (id) => async (dispatch, getState) => {
                 Authorization: `Bearer ${userInfo.token}`,
             },
         };
-
-        //api call to delete client
         await axios.delete(`http://localhost:5000/api/clients/${id}`, config);
         dispatch({
             type: CLIENT_DELETE_SUCCESS,

@@ -215,9 +215,7 @@ const UserScreen = ({ history }) => {
 
     return (
         <>
-            {/* Content Header (Page header) */}
             <HeaderContent name={"Users"} />
-            {/* Main content */}
 
             <section className="content">
                 <div className="container-fluid">
@@ -235,7 +233,6 @@ const UserScreen = ({ history }) => {
                                         />
                                     </div>
                                 </div>
-                                {/* /.card-header */}
                                 <div className="card-body table-responsive p-0">
                                     <LoaderHandler
                                         loading={loading}
@@ -244,7 +241,6 @@ const UserScreen = ({ history }) => {
                                         render={renderTable}
                                     />
                                 </div>
-                                {/* /.card-body */}
                             </div>
                             <Pagination
                                 page={page}
@@ -252,11 +248,8 @@ const UserScreen = ({ history }) => {
                                 setPage={setPageNumber}
                             />
                         </div>
-                        {/* /.col */}
                     </div>
-                    {/* /.row */}
                 </div>
-                {/* /.container-fluid */}
             </section>
         </>
     );

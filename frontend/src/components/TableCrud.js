@@ -44,10 +44,6 @@ const TableCrud = ({ data, itemLink }) => {
                                       </td>
                                   )
                               )}
-                              {/* <td>{item.name}</td>
-                            <td>{item.email}</td>
-                            <td>{item.isAdmin ? 'Si' : 'No'}</td>
-                        */}
 
                               <td className="text-center">
                                   <Link to={`/${itemLink}/${item["id"]}/edit`}>

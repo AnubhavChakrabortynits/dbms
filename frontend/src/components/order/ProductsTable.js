@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-/* components */
 import LoaderHandler from "../loader/LoaderHandler";
 import Pagination from "../Pagination";
 import Search from "../Search";
 import { BigSpin } from "../loader/SvgLoaders";
 
-/* actions */
 import { listProducts } from "../../actions/productActions";
 
 const ProductsTable = ({
@@ -15,7 +13,6 @@ const ProductsTable = ({
     setProductsInOrder,
     productsAlreadyOrdered,
 }) => {
-    //add product to order
     const dispatch = useDispatch();
     const [keyword, setKeyword] = useState("");
     const [pageNumber, setPageNumber] = useState(0);
@@ -24,7 +21,6 @@ const ProductsTable = ({
     const addProduct = (e, product) => {
         e.preventDefault();
 
-        //product object
         const productIn = {
             id: product.id,
             name: product.name,
@@ -32,7 +28,7 @@ const ProductsTable = ({
             stock: product.stock,
             quantity: 1,
         };
-        //if is already in order
+
         if (!inOrder(productIn, productsInOrder)) {
             setProductsInOrder([...productsInOrder, productIn]);
         } else {
@@ -60,7 +56,6 @@ const ProductsTable = ({
         }
     }, [productsFromState]);
 
-    //check if product is already in order
     const inOrder = (obj, list) => {
         for (let index = 0; index < list.length; index++) {
             if (obj.id === list[index].id) {
@@ -70,13 +65,11 @@ const ProductsTable = ({
         return false;
     };
 
-    //refresh products table
     const refreshProducts = (e) => {
         e.preventDefault();
         dispatch(listProducts(keyword, pageNumber));
     };
 
-    //check stock to show
     const showStock = (product) => {
         const productInOrder = productsInOrder.find(
             (productIn) => productIn.id === product.id
@@ -111,7 +104,7 @@ const ProductsTable = ({
                 style={{
                     color: "#fff",
                 }}
-                className="bg-info"
+                className="bg-dark"
             >
                 <tr>
                     <th>ID</th>
@@ -130,7 +123,7 @@ const ProductsTable = ({
                         <td>{showStock(product)}</td>
                         {inOrder(product, productsInOrder) ? (
                             <td className="text-center">
-                                <button disabled className="btn btn-primary">
+                                <button disabled className="btn btn-dark">
                                     In Order
                                 </button>
                             </td>

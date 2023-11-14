@@ -1,6 +1,5 @@
-//check if user is authenticated
 export const isAuthenticated = () => {
-    if(typeof window == 'undefined'){
+    if(typeof window == 'undefined'){ // this is used for user authentication
         return false;
     }
     if(localStorage.getItem('userInfo')){

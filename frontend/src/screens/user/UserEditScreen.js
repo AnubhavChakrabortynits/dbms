@@ -170,14 +170,10 @@ const UserEditScreen = ({ history, match }) => {
                                         render={renderForm}
                                     />
                                 </div>
-                                {/* /.card-body */}
                             </div>
                         </div>
-                        {/* /.col */}
                     </div>
-                    {/* /.row */}
                 </div>
-                {/* /.container-fluid */}
             </section>
         </>
     );

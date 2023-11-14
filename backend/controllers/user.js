@@ -67,9 +67,6 @@ exports.login = asyncHandler(async (req, res) => {
     }
 });
 
-//@desc     Get user by ID
-//@route    GET /api/users/:id
-//@access   Private/admin
 exports.getUser = asyncHandler(async (req, res) => {
     const user = await User.findByPk(req.params.id);
 
@@ -81,14 +78,9 @@ exports.getUser = asyncHandler(async (req, res) => {
     }
 });
 
-//@desc     Get all users
-//@route    GET /api/users
-//@access   Private/admin
 exports.getUsers = asyncHandler(async (req, res) => {
-    //pages constants
     const pageSize = 5;
     const page = Number(req.query.pageNumber) || 1;
-    //check for keywords
     const keyword = req.query.keyword ? req.query.keyword : null;
 
     let options = {
@@ -118,9 +110,6 @@ exports.getUsers = asyncHandler(async (req, res) => {
     res.json({ users, page, pages: Math.ceil(count / pageSize) });
 });
 
-//@desc     Update user
-//@route    PUT /api/users/:id
-//@access   Private/admin
 exports.updateUser = asyncHandler(async (req, res) => {
     const { name, email, password, isAdmin, avatar } = req.body;
 
@@ -148,9 +137,6 @@ exports.updateUser = asyncHandler(async (req, res) => {
     }
 });
 
-//@desc     Update user
-//@route    PUT /api/users/:id
-//@access   Private/admin
 exports.updateProfile = asyncHandler(async (req, res) => {
     const { id, name, email, password, passwordCheck, image } = req.body;
 
@@ -173,9 +159,6 @@ exports.updateProfile = asyncHandler(async (req, res) => {
     }
 });
 
-//@desc     Delete an user
-//@route    DELETE /api/users/:id
-//@access   Private/admin
 exports.deleteUser = asyncHandler(async (req, res) => {
     const user = await User.findByPk(req.params.id);
 

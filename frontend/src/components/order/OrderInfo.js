@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 
 const OrderInfo = ({ productsInOrder, total, setTotal }) => {
-    //get all order items
     const totalItems = (productsIn) => {
         return productsIn.reduce((acc, item) => acc + item.quantity, 0);
     };
@@ -10,7 +9,6 @@ const OrderInfo = ({ productsInOrder, total, setTotal }) => {
         setTotal(totalPrice(productsInOrder));
     }, [productsInOrder]);
 
-    //get order total price
     const totalPrice = (productsIn) => {
         return productsIn
             .reduce((acc, item) => acc + item.quantity * item.price, 0)
@@ -18,7 +16,7 @@ const OrderInfo = ({ productsInOrder, total, setTotal }) => {
     };
 
     return (
-        <div className="small-box bg-success">
+        <div className="small-box bg-dark">
             <div className="inner">
                 <h3>TOTAL $ {total}</h3>
                 <p>

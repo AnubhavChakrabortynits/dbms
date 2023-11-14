@@ -107,7 +107,7 @@ const OrderViewScreen = ({ history, match }) => {
     const renderCartInfo = () =>
         order &&
         order.products && (
-            <div className="small-box bg-info">
+            <div className="small-box bg-dark">
                 <div className="inner">
                     <h3>TOTAL ${order.total}</h3>
                     <p>
@@ -144,12 +144,12 @@ const OrderViewScreen = ({ history, match }) => {
                         <tr key={product.id}>
                             <td>{product.name}</td>
                             <td className="text-center h4">
-                                <span className="badge bg-primary">
+                                <span className="badge bg-dark">
                                     {product.OrderProduct.quantity}
                                 </span>
                             </td>
                             <td className="text-center h4">
-                                <span className="badge bg-info">
+                                <span className="badge bg-dark">
                                     ${product.price}
                                 </span>
                             </td>
@@ -175,7 +175,7 @@ const OrderViewScreen = ({ history, match }) => {
                             title={order.id}
                             paragraph={"ORDER ID"}
                             icon={"far fa-clipboard"}
-                            color={"bg-info"}
+                            color={"bg-dark"}
                         />
                     </div>
 
@@ -205,7 +205,7 @@ const OrderViewScreen = ({ history, match }) => {
                                 title={order.client.name}
                                 paragraph={`ID: ${order.client.id}`}
                                 icon={"fas fa-user"}
-                                color={"bg-info"}
+                                color={"bg-dark"}
                             />
                         )}
                     </div>
@@ -216,7 +216,7 @@ const OrderViewScreen = ({ history, match }) => {
                                 title={order.table.name}
                                 paragraph={`ID: ${order.table.id}`}
                                 icon={"fas fa-utensils"}
-                                color={"bg-info"}
+                                color={"bg-dark"}
                             />
                         </div>
                     ) : (
@@ -226,7 +226,7 @@ const OrderViewScreen = ({ history, match }) => {
                                     title={"Delivery"}
                                     paragraph={order.client.address}
                                     icon={"fas fa-truck"}
-                                    color={"bg-primary"}
+                                    color={"bg-dark"}
                                 />
                             )}
                         </div>
@@ -351,7 +351,6 @@ const OrderViewScreen = ({ history, match }) => {
                         />
                     </div>
                 </div>
-                {/* /.container-fluid */}
             </section>
         </>
     );

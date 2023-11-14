@@ -17,7 +17,6 @@ import {
     CATEGORY_DELETE_FAIL,
 } from "../constants/categoryConstants";
 
-//get all categories with pagination
 export const listCategories =
     (keyword = "", pageNumber = "") =>
     async (dispatch, getState) => {
@@ -26,19 +25,16 @@ export const listCategories =
                 type: CATEGORY_LIST_REQUEST,
             });
 
-            //get user from state
             const {
                 userLogin: { userInfo },
             } = getState();
 
-            //headers
             const config = {
                 headers: {
                     Authorization: `Bearer ${userInfo.token}`,
                 },
             };
 
-            //get all categories
             const { data } = await axios.get(
                 `http://localhost:5000/api/categories?keyword=${keyword}&pageNumber=${pageNumber}`,
                 config
@@ -59,7 +55,6 @@ export const listCategories =
         }
     };
 
-//create a category
 export const createCategory = (category) => async (dispatch, getState) => {
     const { name } = category;
 
@@ -68,12 +63,10 @@ export const createCategory = (category) => async (dispatch, getState) => {
             type: CATEGORY_CREATE_REQUEST,
         });
 
-        //get category from state
         const {
             userLogin: { userInfo },
         } = getState();
 
-        //headers
         const config = {
             headers: {
                 "Content-Type": "application/json",
@@ -81,7 +74,6 @@ export const createCategory = (category) => async (dispatch, getState) => {
             },
         };
 
-        //create category
         const { data } = await axios.post("http://localhost:5000/api/categories", { name }, config);
         dispatch({
             type: CATEGORY_CREATE_SUCCESS,
@@ -98,7 +90,6 @@ export const createCategory = (category) => async (dispatch, getState) => {
     }
 };
 
-//get category details
 export const listCategoryDetails = (id) => async (dispatch, getState) => {
     try {
         dispatch({ type: CATEGORY_DETAILS_REQUEST });

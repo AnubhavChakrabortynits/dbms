@@ -289,15 +289,12 @@ const ProfileScreen = ({ history }) => {
     );
     return (
         <>
-            {/* Content Header (Page header) */}
             <HeaderContent name={"Profile"} />
-            {/* Main content */}
             <section className="content">
                 <div className="container-fluid">
                     <div className="row justify-content-center">
                         {renderModalCheckPassword()}
                         <div className="col-12 col-md-6">
-                            {/* Profile Image */}
                             <div className="card card-primary card-outline">
                                 <div className="card-body box-profile">
                                     <LoaderHandler
@@ -307,15 +304,10 @@ const ProfileScreen = ({ history }) => {
                                         render={renderProfile}
                                     />
                                 </div>
-                                {/* /.card-body */}
                             </div>
-                            {/* /.card */}
                         </div>
-                        {/* /.col */}
                     </div>
-                    {/* /.row */}
                 </div>
-                {/* /.container-fluid */}
             </section>
         </>
     );

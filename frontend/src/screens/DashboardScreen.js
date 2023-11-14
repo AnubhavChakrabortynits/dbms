@@ -46,16 +46,6 @@ const DashboardScreen = ({ history }) => {
         return ordersInPlace;
     };
 
-    const getTodaySales = (items) => {
-        let day = new Date();
-        day = day.toISOString().slice(8, 10);
-        const newSales = items.filter(function (item) {
-            const saleDay = item.updatedAt.slice(8, 10);
-            return day === saleDay;
-        });
-        return newSales;
-    };
-
     //get all delivery orders
     const ordersForDelivery = (orders) => {
         const ordersForDelivery = orders.filter(function (item) {
@@ -79,18 +69,18 @@ const DashboardScreen = ({ history }) => {
                     <td className="font-weight-bold">{sales[i].id}</td>
                     <td className="h4">
                         {sales[i].delivery ? (
-                            <span className={"badge bg-primary"}>IN PLACE</span>
+                            <span className={"badge bg-dark-1"}>IN PLACE</span>
                         ) : (
-                            <span className={"badge bg-info"}>DELIVERY</span>
+                            <span className={"badge bg-dark-1"}>DELIVERY</span>
                         )}
                     </td>
                     <td className="h4">
-                        <span className={"badge bg-success"}>
+                        <span className={"badge bg-dark-1"}>
                             ${sales[i].total}
                         </span>
                     </td>
                     <td className="h4">
-                        <span className={"badge bg-warning"}>
+                        <span className={"badge bg-dark-1"}>
                             {sales[i].products.length}
                         </span>
                     </td>
@@ -114,7 +104,7 @@ const DashboardScreen = ({ history }) => {
                 number={orders.length}
                 paragraph={"Active orders"}
                 link={"order"}
-                color={"success"}
+                color={"dark"}
                 icon={"fas fa-utensils"}
             />
 
@@ -122,14 +112,14 @@ const DashboardScreen = ({ history }) => {
                 number={ordersInPlace(orders).length}
                 paragraph={"In Place Orders"}
                 link={"active"}
-                color={"info"}
+                color={"dark"}
                 icon={"fas fa-users"}
             />
             <SmallBox
                 number={ordersForDelivery(orders).length}
                 paragraph={"Orders for delivery"}
                 link={"delivery"}
-                color={"danger"}
+                color={"dark"}
                 icon={"fas fa-truck"}
             />
 
@@ -137,7 +127,7 @@ const DashboardScreen = ({ history }) => {
                 number={orders.length}
                 paragraph={"Total orders"}
                 link={"order"}
-                color={"warning"}
+                color={"dark"}
                 icon={"ion ion-bag"}
             />
         </>
@@ -174,11 +164,11 @@ const DashboardScreen = ({ history }) => {
             <div className="col-12 col-lg-6">
                 <div className="card">
                     <div className="card-header border-0">
-                        <h3 className="card-title">Restobar Overview</h3>
+                        <h3 className="card-title">Fine&Dine Overview</h3>
                     </div>
                     <div className="card-body">
                         <div className="d-flex justify-content-between align-items-center border-bottom mb-3">
-                            <p className="text-warning text-xl">
+                            <p className="text-dark-1 text-xl">
                                 <i className="fas fa-shopping-cart"></i>
                             </p>
                             <p className="d-flex flex-column text-right">
@@ -191,9 +181,8 @@ const DashboardScreen = ({ history }) => {
                                 </span>
                             </p>
                         </div>
-                        {/* /.d-flex */}
                         <div className="d-flex justify-content-between align-items-center border-bottom mb-3">
-                            <p className="text-info text-xl">
+                            <p className="text-dark-1 text-xl">
                                 <i className="fas fa-truck"></i>
                             </p>
                             <p className="d-flex flex-column text-right">
@@ -207,12 +196,12 @@ const DashboardScreen = ({ history }) => {
                             </p>
                         </div>
                         <div className="d-flex justify-content-between align-items-center border-bottom mb-3">
-                            <p className="text-success text-xl">
+                            <p className="text-dark-1 text-xl">
                                 <i className="fas fa-money-bill-wave"></i>
                             </p>
                             <p className="d-flex flex-column text-right">
                                 <span className="font-weight-bold">
-                                    <span className="text-success">
+                                    <span className="text-dark-1">
                                         <i className="fas fa-dollar-sign text-success"></i>{" "}
                                         {statistics && statistics.today}
                                     </span>
@@ -220,9 +209,8 @@ const DashboardScreen = ({ history }) => {
                                 <span className="text-muted">TODAY SALES</span>
                             </p>
                         </div>
-                        {/* /.d-flex */}
                         <div className="d-flex justify-content-between align-items-center mb-0">
-                            <p className="text-danger text-xl">
+                            <p className="text-dark-1 text-xl">
                                 <i className="fas fa-piggy-bank"></i>
                             </p>
                             <p className="d-flex flex-column text-right">
@@ -235,7 +223,6 @@ const DashboardScreen = ({ history }) => {
                                 <span className="text-muted">TOTAL SALES</span>
                             </p>
                         </div>
-                        {/* /.d-flex */}
                     </div>
                 </div>
             </div>
@@ -265,7 +252,7 @@ const DashboardScreen = ({ history }) => {
                         >
                             <td>
                                 <h4>
-                                    <span className={"badge bg-primary"}>
+                                    <span className={"badge bg-dark-1"}>
                                         {order.id}
                                     </span>
                                 </h4>
@@ -274,7 +261,7 @@ const DashboardScreen = ({ history }) => {
                             <td>{order.table ? order.table.name : ""}</td>
                             <td>
                                 <h4>
-                                    <span className={"badge bg-success"}>
+                                    <span className={"badge bg-dark-1"}>
                                         ${order.total}
                                     </span>
                                 </h4>

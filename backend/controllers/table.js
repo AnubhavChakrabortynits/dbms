@@ -3,19 +3,12 @@ const Table = require("../models").Table;
 const Order = require("../models").Order;
 const { Op } = require("sequelize");
 
-//@desc     Create a table
-//@route    POST /api/tables
-//@access   Private/user
-
 exports.createTable = asyncHandler(async (req, res) => {
     const name = req.body.name;
     const createdTable = await Table.create({ name });
     res.status(201).json(createdTable);
 });
 
-//@desc     Get all tables with pagination
-//@route    GET /api/tables
-//@access   Private/user
 exports.getTables = asyncHandler(async (req, res) => {
     const pageSize = 5;
     const page = Number(req.query.pageNumber) || 1;
@@ -47,9 +40,6 @@ exports.getTables = asyncHandler(async (req, res) => {
     res.json({ tables, page, pages: Math.ceil(count / pageSize) });
 });
 
-//@desc     Get all tables
-//@route    GET /api/tables/all
-//@access   Private/user
 exports.getAllTables = asyncHandler(async (req, res) => {
     const tables = await Table.findAll({
         include: [
@@ -64,9 +54,6 @@ exports.getAllTables = asyncHandler(async (req, res) => {
     res.json(tables);
 });
 
-//@desc     Get table by ID
-//@route    GET /api/tables/:id
-//@access   Private/user
 exports.getTable = asyncHandler(async (req, res) => {
     const table = await Table.findByPk(req.params.id);
 
@@ -78,9 +65,6 @@ exports.getTable = asyncHandler(async (req, res) => {
     }
 });
 
-//@desc     Update table
-//@route    PUT /api/tables/:id
-//@access   Private/user
 exports.updateTable = asyncHandler(async (req, res) => {
     const { name, occupied } = req.body;
 
@@ -97,9 +81,6 @@ exports.updateTable = asyncHandler(async (req, res) => {
     }
 });
 
-//@desc     Delete a table
-//@route    DELETE /api/tables/:id
-//@access   Private/user
 exports.deleteTable = asyncHandler(async (req, res) => {
     const table = await Table.findByPk(req.params.id);
 

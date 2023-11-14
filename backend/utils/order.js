@@ -29,12 +29,6 @@ exports.addProductsInOrder = async (order, products) => {
     });
 };
 
-/* 
-Update stock from products
-condition
-    +1 INCREASE STOCK 
-    -1 DECREASE STOCK
-*/
 exports.updateProductsStock = async (products, condition) => {
     await products.forEach(async (product) => {
         const productToUpdate = await Product.findByPk(product.id);

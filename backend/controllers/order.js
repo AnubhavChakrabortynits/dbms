@@ -11,11 +11,7 @@ const {
     updateProductsStock,
 } = require("../utils/order");
 
-//@desc     Create a Order
-//@route    POST /api/orders
-//@access   Private/user
 exports.createOrder = asyncHandler(async (req, res) => {
-    //get data from request
     const { total, tableId, clientId, products, delivery, note } = req.body;
 
     await stock(products);
@@ -51,9 +47,6 @@ exports.createOrder = asyncHandler(async (req, res) => {
     }
 });
 
-//@desc     Get all orders
-//@route    GET /api/orders
-//@access   Private/user
 exports.getOrders = asyncHandler(async (req, res) => {
     const pageSize = 5;
     const page = Number(req.query.pageNumber) || 1;
@@ -104,9 +97,6 @@ exports.getOrders = asyncHandler(async (req, res) => {
     res.json({ orders, page, pages: Math.ceil(count / pageSize) });
 });
 
-//@desc     Get order by ID
-//@route    GET /api/order/:id
-//@access   Private/user
 exports.getOrder = asyncHandler(async (req, res) => {
     const order = await Order.findByPk(req.params.id, {
         include: { all: true, nested: true },
@@ -119,9 +109,6 @@ exports.getOrder = asyncHandler(async (req, res) => {
     }
 });
 
-//@desc     Update order to paid
-//@route    POST /api/orders/:id/pay
-//@access   Private/user
 exports.updateOrderPay = asyncHandler(async (req, res) => {
     const order = await Order.findByPk(req.params.id);
 
@@ -141,9 +128,6 @@ exports.updateOrderPay = asyncHandler(async (req, res) => {
     }
 });
 
-//@desc     Update order
-//@route    PUT /api/orders/:id
-//@access   Private/user
 exports.updateOrder = asyncHandler(async (req, res) => {
     const order = await Order.findByPk(req.params.id, {
         include: { all: true, nested: true },
@@ -155,18 +139,14 @@ exports.updateOrder = asyncHandler(async (req, res) => {
         order.delivery = delivery;
         order.note = note;
 
-        /* CHECK TABLE */
         if (order.tableId !== tableId) {
             if (!order.tableId && !delivery) {
-                /* DELIVERY -> TABLE */
                 await updateTable(tableId, true);
                 order.tableId = tableId;
             } else if (order.tableId && delivery) {
-                /* TABLE -> DELIVERY */
                 await updateTable(order.tableId, false);
                 order.tableId = null;
             } else {
-                /* TABLE -> TABLE */
                 await updateTable(order.tableId, false);
                 await updateTable(tableId, true);
                 order.tableId = tableId;
@@ -205,9 +185,6 @@ exports.updateOrder = asyncHandler(async (req, res) => {
     }
 });
 
-//@desc     Update order to delivered
-//@route    POST /api/orders/:id/delivery
-//@access   Private/user
 exports.updateOrderDelivery = asyncHandler(async (req, res) => {
     const order = await Order.findByPk(req.params.id);
 
@@ -221,9 +198,6 @@ exports.updateOrderDelivery = asyncHandler(async (req, res) => {
     }
 });
 
-//@desc     Delete a order
-//@route    DELETE /api/orders/:id
-//@access   Private/user
 exports.deleteOrder = asyncHandler(async (req, res) => {
     const order = await Order.findByPk(req.params.id);
 
@@ -236,9 +210,6 @@ exports.deleteOrder = asyncHandler(async (req, res) => {
     }
 });
 
-//@desc     Get statistics
-//@route    POST /api/orders/statistics
-//@access   Private/user
 exports.getStatistics = asyncHandler(async (req, res) => {
     const TODAY_START = new Date().setHours(0, 0, 0, 0);
     const NOW = new Date();

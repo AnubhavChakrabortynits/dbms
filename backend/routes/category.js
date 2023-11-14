@@ -7,14 +7,9 @@ const {
     getCategories,
     updateCategory,
     deleteCategory,
-    getAllCategories,
 } = require("../controllers/category");
 
-// VALIDATORS
-const { categoryCreateValidator } = require("../validators/category");
-const { runValidation } = require("../validators");
-
-//ROUTES
+// routes start here
 router
     .route("/")
     .get( getCategories)

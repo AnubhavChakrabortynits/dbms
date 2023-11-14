@@ -90,7 +90,7 @@ const ClientEditScreen = ({ history, match }) => {
         }
 
         if (!dni) {
-            errorsCheck.dni = "DNI is required";
+            errorsCheck.dni = "Adhaar Number is required";
         }
 
         if (Object.keys(errorsCheck).length > 0) {
@@ -144,7 +144,7 @@ const ClientEditScreen = ({ history, match }) => {
                 errors={errors}
             />
             <Input
-                name={"DNI"}
+                name={"Adhaar Number"}
                 type={"text"}
                 data={dni}
                 setData={setDni}

@@ -1,11 +1,8 @@
 import React from "react";
 
 const OrderCart = ({ productsInOrder, setProductsInOrder }) => {
-    //remove product from order
     const removeProduct = (e, product) => {
         e.preventDefault();
-
-        //remove product
         const productsIn = productsInOrder.filter(function (item) {
             return item.id !== product.id;
         });
@@ -13,7 +10,6 @@ const OrderCart = ({ productsInOrder, setProductsInOrder }) => {
         setProductsInOrder(productsIn);
     };
 
-    //increase product quantiity
     const addUnit = (e, product) => {
         e.preventDefault();
 
@@ -23,7 +19,6 @@ const OrderCart = ({ productsInOrder, setProductsInOrder }) => {
         setProductsInOrder(newProducts);
     };
 
-    //decrease product quantity
     const removeUnit = (e, product) => {
         e.preventDefault();
 

@@ -96,7 +96,6 @@ const ActiveOrdersScreen = ({ history }) => {
                                         Occupied Tables
                                     </h3>
                                 </div>
-                                {/* /.card-header */}
                                 <div className="card-body">
                                     <div className="row">
                                         <LoaderHandler
@@ -107,10 +106,8 @@ const ActiveOrdersScreen = ({ history }) => {
                                         />
                                     </div>
                                 </div>
-                                {/* /.card-body */}
                             </div>
                         </div>
-                        {/* /.col */}
                         <div className="col-12 col-md-3 col-lg-3">
                             <div className="card">
                                 <div className="card-header">Free Tables</div>
@@ -125,9 +122,7 @@ const ActiveOrdersScreen = ({ history }) => {
                             </div>
                         </div>
                     </div>
-                    {/* /.row */}
                 </div>
-                {/* /.container-fluid */}
             </section>
         </>
     );

@@ -1,7 +1,7 @@
 {
-    "name": "restobar",
+    "name": "Fine&Dine",
     "version": "1.0.0",
-    "description": "Aplicacion para restaurantes",
+    "description": "Restaurent Management System",
     "main": "server.js",
     "engines": {
         "node": "14.13.1",
@@ -12,10 +12,6 @@
         "start": "node server.js",
         "dev": "nodemon server.js"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/matias-rivera/restobar.git"
-    },
     "keywords": [
         "restobar",
         "javascript",
@@ -25,12 +21,7 @@
         "sql",
         "redux"
     ],
-    "author": "Juan Matias Rivera",
     "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/matias-rivera/restobar/issues"
-    },
-    "homepage": "https://github.com/matias-rivera/restobar#readme",
     "dependencies": {
         "bcrypt": "^5.0.0",
         "cors": "^2.8.5",

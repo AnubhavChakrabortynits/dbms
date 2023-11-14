@@ -3,9 +3,6 @@ const Product = require("../models").Product;
 const Category = require("../models").Category;
 const { Op } = require("sequelize");
 
-//@desc     Create a product
-//@route    POST /api/products
-//@access   Private/product
 exports.createProduct = asyncHandler(async (req, res) => {
     const { name, price, stock, categoryId } = req.body;
     const category = await Category.findByPk(categoryId);
@@ -57,9 +54,6 @@ exports.getProducts = asyncHandler(async (req, res) => {
     res.json({ products, page, pages: Math.ceil(count / pageSize) });
 });
 
-//@desc     Get product by ID
-//@route    GET /api/products/:id
-//@access   Private/user
 exports.getProduct = asyncHandler(async (req, res) => {
     const product = await Product.findByPk(req.params.id, {
         include: [{ model: Category, as: "category" }],

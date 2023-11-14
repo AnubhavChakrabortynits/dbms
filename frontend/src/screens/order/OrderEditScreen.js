@@ -44,8 +44,6 @@ const OrderEditScreen = ({ history, match }) => {
     const dispatch = useDispatch();
 
     const userLogin = useSelector((state) => state.userLogin);
-    const { userInfo } = userLogin;
-
     //order details state
     const orderDetails = useSelector((state) => state.orderDetails);
     const { loading, error, order } = orderDetails;

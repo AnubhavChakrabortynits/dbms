@@ -165,10 +165,8 @@ const ProductEditScreen = ({ history, match }) => {
 
     return (
         <>
-            {/* Content Header (Page header) */}
             <HeaderContent name={"Products"} />
 
-            {/* Main content */}
             <section className="content">
                 <div className="container-fluid">
                     <ButtonGoBack history={history} />
@@ -178,7 +176,6 @@ const ProductEditScreen = ({ history, match }) => {
                                 <div className="card-header">
                                     <h3 className="card-title">Edit Product</h3>
                                 </div>
-                                {/* /.card-header */}
                                 <div className="card-body">
                                     <LoaderHandler
                                         loading={loadingUpdate}
@@ -190,14 +187,10 @@ const ProductEditScreen = ({ history, match }) => {
                                         render={renderForm}
                                     />
                                 </div>
-                                {/* /.card-body */}
                             </div>
                         </div>
-                        {/* /.col */}
                     </div>
-                    {/* /.row */}
                 </div>
-                {/* /.container-fluid */}
             </section>
         </>
     );

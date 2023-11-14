@@ -199,11 +199,8 @@ const TableScreen = ({ history }) => {
                                 setPage={setPageNumber}
                             />
                         </div>
-                        {/* /.col */}
                     </div>
-                    {/* /.row */}
                 </div>
-                {/* /.container-fluid */}
             </section>
         </>
     );
