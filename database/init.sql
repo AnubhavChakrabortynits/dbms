@@ -1,13 +1,3 @@
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-CREATE DATABASE IF NOT EXISTS `restobar` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `restobar`;
-
--- --------------------------------------------------------
-
-
 DROP TABLE IF EXISTS `Categories`;
 CREATE TABLE IF NOT EXISTS `Categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -15,7 +5,7 @@ CREATE TABLE IF NOT EXISTS `Categories` (
   `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+);
 
 INSERT INTO `Categories` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
 (1, 'Continental', '2021-08-23 05:50:50', '2021-08-23 05:50:50'),
@@ -39,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `Clients` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `dni` (`dni`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+);
 
 
 INSERT INTO `Clients` (`id`, `name`, `address`, `phone`, `email`, `dni`) VALUES
@@ -56,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `OrderProducts` (
   PRIMARY KEY (`id`),
   KEY `orderId` (`orderId`),
   KEY `productId` (`productId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 
 DROP TABLE IF EXISTS `Orders`;
@@ -75,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `Orders` (
   KEY `userId` (`userId`),
   KEY `clientId` (`clientId`),
   KEY `tableId` (`tableId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 
 
@@ -90,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `Products` (
   `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `categoryId` (`categoryId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+);
 
 
 INSERT INTO `Products` (`id`, `name`, `price`, `stock`, `categoryId`, `createdAt`, `updatedAt`) VALUES
@@ -98,23 +88,6 @@ INSERT INTO `Products` (`id`, `name`, `price`, `stock`, `categoryId`, `createdAt
 (2, 'Burritos', 180, 70, 4, '2021-08-23 05:50:51', '2021-08-23 05:50:51'),
 (3, 'Butter Chicken', 180, 70, 2, '2021-08-23 05:50:51', '2021-08-23 05:50:51'),
 (4, 'Shahi Paneer', 180, 70, 2, '2021-08-23 05:50:51', '2021-08-23 05:50:51');
-
-DROP TABLE IF EXISTS `SequelizeMeta`;
-CREATE TABLE IF NOT EXISTS `SequelizeMeta` (
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`name`),
-  UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-
-INSERT INTO `SequelizeMeta` (`name`) VALUES
-('20210408050330-create-table.js'),
-('20210408051244-create-client.js'),
-('20210408052326-create-user.js'),
-('20210408064209-create-category.js'),
-('20210408064602-create-product.js'),
-('20210408070645-create-order.js'),
-('20210408071614-create-order-product.js');
 
 
 DROP TABLE IF EXISTS `Tables`;
@@ -125,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `Tables` (
   `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+);
 
 
 INSERT INTO `Tables` (`id`, `name`, `occupied`, `createdAt`, `updatedAt`) VALUES
@@ -149,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `Users` (
   `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+);
 
 INSERT INTO `Users` (`id`, `name`, `email`, `password`, `image`, `isAdmin`, `createdAt`, `updatedAt`) VALUES
 (1, 'Admin', 'admin@example.com', '$2b$10$Ob28q7LgYBCadB0mgVnPD.u8WtBVVoWs28iZTrxFF8LWuwG7xWiuO', '/avatar.png', 1, '2021-08-23 05:50:50', '2021-08-23 05:50:50'),

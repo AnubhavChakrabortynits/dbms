@@ -32,11 +32,10 @@ const LoginScreen = ({ history }) => {
             style={{ backgroundColor: "#cad5df" }}
         >
             <div className="login-box">
-                {/* /.login-logo */}
                 <div className="card">
                     <div className="card-header ">
                         <div className="login-logo">
-                            <b>Restobar</b>
+                            <b>Fine&Dine</b>
                             <div className="text-center">
                                 <img
                                     className="profile-user-img img-fluid img-circle"
@@ -116,7 +115,6 @@ const LoginScreen = ({ history }) => {
                         </form>
                         <div></div>
                     </div>
-                    {/* /.login-card-body */}
                 </div>
             </div>
         </div>
